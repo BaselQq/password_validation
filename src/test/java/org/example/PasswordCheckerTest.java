@@ -76,4 +76,17 @@ class PasswordCheckerTest {
         // THEN
         Assertions.assertFalse(actual);
     }
+
+    @Test
+    void checkPasswordIfWeak_shouldReturnTrue_whenPasswordIsCommon() {
+        // GIVEN
+        String[] passwords = {"Password1", "Aa345678"};
+        // WHEN
+        boolean actual = false;
+        for (String password : passwords) {
+            actual = PasswordChecker.checkPasswordIfWeak(password);
+        }
+        // THEN
+        Assertions.assertTrue(actual);
+    }
 }

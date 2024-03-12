@@ -54,4 +54,24 @@ public class PasswordChecker {
 
         return false;
     }
+
+    public static boolean checkPasswordIfWeak(String password) {
+        String[] commonPasswords = new String[6];
+
+        // TODO: enhancing common passwords from good sources
+        commonPasswords[0] = "password";
+        commonPasswords[1] = "12345";
+        commonPasswords[2] = "23456";
+        commonPasswords[3] = "34567";
+        commonPasswords[4] = "45678";
+        commonPasswords[5] = "56789";
+
+        for (String commonPassword : commonPasswords) {
+            if (password.toLowerCase().contains(commonPassword)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
