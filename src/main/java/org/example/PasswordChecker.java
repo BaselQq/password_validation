@@ -74,4 +74,8 @@ public class PasswordChecker {
 
         return false;
     }
+
+    public static boolean checkPasswordSpecialCharacters(String password) {
+        return password.matches(".*[\\p{P}\\p{S}].*");
+    }
 }

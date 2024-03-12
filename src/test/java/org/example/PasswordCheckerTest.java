@@ -89,4 +89,14 @@ class PasswordCheckerTest {
         // THEN
         Assertions.assertTrue(actual);
     }
+
+    @Test
+    void checkPasswordSpecialCharacters_shouldReturnTrue_whenPasswordContainsSpecialCharacters() {
+        // GIVEN
+        String password = "/adsf";
+        // WHEN
+        boolean actual = PasswordChecker.checkPasswordSpecialCharacters(password);
+        // THEN
+        Assertions.assertTrue(actual);
+    }
 }
