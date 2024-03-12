@@ -16,16 +16,42 @@ public class PasswordChecker {
     }
 
     public static boolean checkPasswordContainsDigit(String password) {
+        return password.matches(".*\\d.*");
+
+//        Another Way to solve this task:
+//        char[] charPasswordArray = convertStringToChar(password);
+//
+//        for (char charPassword : charPasswordArray) {
+//            if (Character.isDigit(charPassword)) {
+//                return true;
+//            }
+//        }
+//
+//        return false;
+    }
+
+    public static boolean checkPasswordUpperAndLowerCase(String password) {
         char[] charPasswordArray = convertStringToChar(password);
 
+        boolean upperCaseChecked = false;
+        boolean lowerCaseChecked = false;
+
         for (char charPassword : charPasswordArray) {
-            if (Character.isDigit(charPassword)) {
-                return true;
+            if (Character.isUpperCase(charPassword) ) {
+                upperCaseChecked = true;
             }
         }
 
-        return false;
+        for (char charPassword : charPasswordArray) {
+            if (Character.isLowerCase(charPassword)) {
+                lowerCaseChecked = true;
+            }
+        }
 
-//        return password.matches("\\d+");
+        if (upperCaseChecked && lowerCaseChecked) {
+            return true;
+        }
+
+        return false;
     }
 }
