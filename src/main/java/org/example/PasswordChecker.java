@@ -66,13 +66,14 @@ public class PasswordChecker {
         commonPasswords[4] = "45678";
         commonPasswords[5] = "56789";
 
+        // return false if password weak
         for (String commonPassword : commonPasswords) {
             if (password.toLowerCase().contains(commonPassword)) {
-                return true;
+                return false;
             }
         }
 
-        return false;
+        return true;
     }
 
     public static boolean checkPasswordSpecialCharacters(String password) {
